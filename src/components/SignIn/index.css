@@ -1,0 +1,75 @@
+.bg-container-sign-in {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.un-match {
+  outline: 1px solid red;
+  color: red;
+  border: 0 !important;
+}
+
+.match {
+  outline: 1px solid green;
+  color: green;
+  border: 0 !important;
+}
+
+.sign-heading {
+  color: #f7931e;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 12px;
+}
+
+form > label {
+  margin-bottom: 5px;
+  font-size: 11px;
+  color: #475569;
+  letter-spacing: 0.01em;
+  font-weight: 600;
+}
+
+form > input {
+  margin-bottom: 16px;
+  height: 35px;
+  width: 300px;
+  padding-left: 8px;
+  background: #e2e8f0;
+  border-radius: 2px;
+  border: 0;
+  outline: none;
+}
+
+@media screen and (min-width: 761px) {
+  .container-sign-in {
+    background: #fefeff;
+    width: 400px;
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 8px 40px rgba(7, 7, 7, 0.15);
+    border-radius: 8px;
+    margin-left: 30px;
+    margin-top: 6%;
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .container-sign-in {
+    width: 90%;
+    padding: 15px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px;
+    margin-top: 6%;
+  }
+}
