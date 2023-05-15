@@ -117,6 +117,10 @@ hr {
   cursor: pointer;
 }
 
+.cart-head {
+  font-size: 18px !important;
+}
+
 @media screen and (max-width: 768px) {
   .column-heads {
     display: none;
@@ -140,6 +144,9 @@ hr {
 
   .order-btn {
     width: 100%;
+  }
+  .cart-head {
+    font-size: 14px !important;
   }
 }
 
@@ -196,4 +203,17 @@ hr {
   font-size: 15px;
   font-family: roboto;
   background-color: transparent;
+}
+
+.select-option {
+  border: 1px solid #64748b;
+  padding: 6px;
+  border-radius: 5px;
+  color: #1e293b;
+  font-size: 15px;
+  font-family: roboto;
+  background-color: transparent;
+  width: 180px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -6,8 +6,36 @@ import Header from '../Header'
 import Footer from '../Footer'
 import CartItem from '../CartItem'
 
+const paymentMethods = [
+  {
+    id: '1',
+    paymentText: 'Credit Card',
+  },
+  {
+    id: '2',
+    paymentText: 'Debit Card',
+  },
+  {
+    id: '3',
+    paymentText: 'Net Banking',
+  },
+  {
+    id: '4',
+    paymentText: 'Gpay',
+  },
+  {
+    id: '5',
+    paymentText: 'PhonePe',
+  },
+]
+
 class Cart extends Component {
-  state = {totalItemsCost: 0, isOrderPlaced: false, addressText: ''}
+  state = {
+    totalItemsCost: 0,
+    isOrderPlaced: false,
+    addressText: '',
+    payment: paymentMethods[0].paymentText,
+  }
 
   componentDidMount() {
     const cartList = JSON.parse(localStorage.getItem('cartData'))
@@ -73,6 +101,10 @@ class Cart extends Component {
     localStorage.setItem('cartData', JSON.stringify(cart))
   }
 
+  onChangePaymentMethod = e => {
+    this.setState({payment: e.target.value})
+  }
+
   renderPaymentSuccessView = () => (
     <>
       <Header isHome={false} isCart />
@@ -96,7 +128,7 @@ class Cart extends Component {
   )
 
   renderCartView = () => {
-    const {addressText} = this.state
+    const {addressText, payment} = this.state
     const cartList = JSON.parse(localStorage.getItem('cartData'))
     const {totalItemsCost} = this.state
     if (cartList === null || cartList.length === 0) {
@@ -143,11 +175,11 @@ class Cart extends Component {
           ))}
           <hr className="cart-line" />
           <li className="cart-summary">
-            <h1>Order Total:</h1>
+            <h1 className="cart-head">Order Total</h1>
             <p testid="total-price">₹ {totalItemsCost}.00</p>
           </li>
           <li className="cart-summary">
-            <h1>Address:</h1>
+            <h1 className="cart-head">Address</h1>
             <input
               type="text"
               className="address-input"
@@ -155,6 +187,18 @@ class Cart extends Component {
               onChange={this.onChangeAddress}
               value={addressText}
             />
+          </li>
+          <li className="cart-summary">
+            <h1 className="cart-head">Payment Method</h1>
+            <select
+              onChange={this.onChangePaymentMethod}
+              className="select-option"
+              value={payment}
+            >
+              {paymentMethods.map(each => (
+                <option key={each.id}>{each.paymentText}</option>
+              ))}
+            </select>
           </li>
           <li className="order-btn">
             <button
